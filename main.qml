@@ -23,14 +23,14 @@ Window {
         Keys.onPressed: {
 
             if (event.key === Qt.Key_Left) {
-                console.log("move left");
-                imgwater.x -=30
+
+                imgwater.x -=60
                 event.accepted = true;
             }
 
             if (event.key === Qt.Key_Right) {
-                console.log("move left");
-                imgwater.x +=30
+
+                imgwater.x +=60
                 event.accepted = true;
             }
         }
