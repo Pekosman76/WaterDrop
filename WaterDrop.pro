@@ -15,5 +15,7 @@ include(deployment.pri)
 
 DISTFILES += \
     main.qml \
-    Water.qml
+    Water.qml \
+    Game.qml \
+    Start.qml
 
