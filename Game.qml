@@ -10,6 +10,7 @@ Item {
         if (imgwater.y<imagwaterdropp.y+50 && imgwater.y>imagwaterdropp.y-50  && imgwater.x<imagwaterdropp.x+50 &&imgwater.x>imagwaterdropp.x-50 )
         {
             imagwaterdropp.state = "goal"
+            console.log("gg")
 
         }
 
@@ -26,12 +27,14 @@ Item {
 
                 imgwater.x -=20
                 event.accepted = true;
+                test();
             }
 
             if (event.key === Qt.Key_Right) {
 
                 imgwater.x +=20
                 event.accepted = true;
+                 test();
             }
         }
     }
@@ -76,7 +79,7 @@ Item {
                 State {
                     name: "goal"
                     PropertyChanges {
-                        target: imagwaterdropp; x:500 }
+                        target: imagwaterdropp; x:Math.random() }
 
                 }
             ]
