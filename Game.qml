@@ -1,9 +1,11 @@
 import QtQuick 2.0
 
 Item {
+
     id : game
     visible: false
     property int counter:0
+    property int move:20
 
     function test ()
     {
@@ -14,19 +16,30 @@ Item {
             imagwaterdropp.y=0;
             counter = counter + 1;
             anim.restart();
+
+            if (counter>5 && counter<10)
+            {
+
+                anim.duration = 2500
+            }
+            if (counter>10 && counter<15)
+            {
+
+                anim.duration = 2000
+            }
+
+            if (counter>15 && counter<20)
+            {
+
+                anim.duration = 1800
+            }
         }
-
-
+        if ((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
+        {
+            start.state = "visible"
+        }
     }
-    function test2 ()
-    {
 
-        var qml= new Array (200,300,400,500,600,700)
-
-        var bg = qml[Math.floor(qml.length*Math.random)]
-        return bg
-
-    }
     function randomNumber() {
         return Math.random()*950;
     }
@@ -34,7 +47,6 @@ Item {
     function getNumber() {
         return game.randomNumber();
     }
-
 
     Item {
 
@@ -45,14 +57,14 @@ Item {
 
             if (event.key === Qt.Key_Left) {
 
-                imgwater.x -=20
+                imgwater.x -=move
                 event.accepted = true;
                 test();
             }
 
             if (event.key === Qt.Key_Right) {
 
-                imgwater.x +=20
+                imgwater.x +=move
                 event.accepted = true;
                 test();
             }
@@ -67,6 +79,8 @@ Item {
         height: 900
         color: "white"
         Rectangle{
+            id : ground
+            z : 2
 
             width: parent.width
             height: 60
@@ -87,7 +101,6 @@ Item {
             anchors.top: parent.top
             anchors.left : parent.left
 
-
             font.pointSize: 15
             color : "#5A8AD1"
             font.bold: true
@@ -104,16 +117,12 @@ Item {
 
             source: "assets/drop.png"
             fillMode: Image.Stretch
-            PropertyAnimation on y { id :anim;from: imagwaterdropp.y;to: imgwater.y; duration: 2500; loops: Animation.Infinite }
+
+            PropertyAnimation on y { id :anim; from: imagwaterdropp.y;to: ground.y; duration: 3000; loops: Animation.Infinite }
             onYChanged: {
 
                 test();
             }
-
-
-
-
-
         }
     }
 }

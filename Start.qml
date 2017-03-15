@@ -14,12 +14,24 @@ Item {
                 target: start; visible:false }
             PropertyChanges {
                 target: game1; visible:true }
+            PropertyChanges {
+                target: game1; counter:0 }
+        },
+        State {
+            name: "visible"
+            PropertyChanges {
+                target: start; visible:true }
+            PropertyChanges {
+                target: game1; visible:false }
+            PropertyChanges {
+                target: game1; counter:0 }
         }
     ]
     transitions:
         Transition {
         from: ""; to: "notvisible"
         PropertyAnimation { property :"visible";duration: 500;easing.type: Easing.InOutQuad }
+
 
     }
 
