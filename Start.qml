@@ -77,7 +77,33 @@ Item {
     }
 
 
+Row{
 
+    id : rowimg
+    spacing: 150
+    anchors.top : imagwaterdrop.bottom
+    anchors.horizontalCenter: startbutton.horizontalCenter
+
+    Image {
+
+        id : left
+        width: 90
+        height: 90
+        source: "assets/left.png"
+
+    }
+    Image {
+        id : right
+        width: 90
+        height: 90
+
+        source: "assets/right.png"
+
+    }
+
+
+
+}
     Image {
         id : imagwaterdrop
         width: 70
@@ -94,11 +120,11 @@ Item {
         id : imagwaterdrop2
         width: 95
         height: 95
-        x : starttext.x+500
+        x : starttext.x+525
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
-        PropertyAnimation on y { from: imagwaterdrop2.y;to: startbutton.y; duration: 2500; loops: Animation.Infinite }
+        PropertyAnimation on y { from: imagwaterdrop2.y;to: rowimg.y; duration: 2500; loops: Animation.Infinite }
     }
 
     Image {
@@ -109,7 +135,7 @@ Item {
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
-        PropertyAnimation on y { from: imagwaterdrop3.y;to: startbutton.y; duration: 2500; loops: Animation.Infinite }
+        PropertyAnimation on y { from: imagwaterdrop3.y;to: rowimg.y; duration: 2500; loops: Animation.Infinite }
     }
 
 
