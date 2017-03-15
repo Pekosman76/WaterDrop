@@ -5,7 +5,7 @@ Item {
     id : game
     visible: false
     property int counter:0
-    property int move:20
+    property int move:30
 
     function test ()
     {
@@ -31,7 +31,7 @@ Item {
             if (counter>15 && counter<20)
             {
 
-                anim.duration = 1800
+                anim.duration = 1900
             }
         }
         if ((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
@@ -93,6 +93,7 @@ Item {
 
             z :2
             id : imgwater
+            Behavior on x { NumberAnimation { duration: 50 } }
 
         }
         Text{
