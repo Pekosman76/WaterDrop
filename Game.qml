@@ -13,7 +13,7 @@ Item {
         if (imgwater.y<imagwaterdropp.y+50 && imgwater.y>imagwaterdropp.y-50  && imgwater.x<imagwaterdropp.x+50 &&imgwater.x>imagwaterdropp.x-50 )
         {
             imagwaterdropp.x = game.getNumber();
-            imagwaterdropp.y=0;
+            imagwaterdropp.y=-200;
             counter = counter + 1;
             anim.restart();
 
@@ -115,6 +115,7 @@ Item {
             width: 95
             height: 95
             x : 150
+            y : -200
 
             source: "assets/drop.png"
             fillMode: Image.Stretch
