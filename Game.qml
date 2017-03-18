@@ -5,7 +5,7 @@ Item {
     id : game
     visible: false
     property int counter:0
-    property int move:40
+    property int move:30
     property int flag:0
 
     function test ()
@@ -20,15 +20,20 @@ Item {
             if (counter>1 && counter<10)
             {
 
-                anim.duration = 8000
+                anim.duration = 2500
             }
             if (counter>10 && counter<15)
             {
 
-                anim.duration = 2000
+                anim.duration = 2200
             }
 
             if (counter>15 && counter<20)
+            {
+
+                anim.duration = 2000
+            }
+            if (counter>20 && counter<25)
             {
 
                 anim.duration = 1900
@@ -42,7 +47,7 @@ Item {
 
             }
 
-            if (counter ==3)
+            if (counter ==5)
             {
                 imageboost.y=-200;
                 imageboost.x = game.getNumber();
@@ -78,9 +83,8 @@ Item {
         if (imgwater.y<imagebad.y+50 && imgwater.y>imagebad.y-50  && imgwater.x<imagebad.x+50 &&imgwater.x>imagebad.x-50 )
         {
 
-            animbad.stop()
-            //console.log("win")
-            speed.duration +=20
+            animbad.stop()        
+            speed.duration =70
             imagebad.x=-500
             imagebad.y=-200
         }
@@ -102,9 +106,8 @@ Item {
         {
 
             animboost.stop()
-            console.log("win")
             move+=20
-            speed.duration -= 20
+            speed.duration = 30
             imageboost.x=-500
             imageboost.y=-200
         }
