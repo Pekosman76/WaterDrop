@@ -89,33 +89,6 @@ Item {
     }
 
 
-Row{
-
-    id : rowimg
-    spacing: 150
-    anchors.top : imagwaterdrop.bottom
-    anchors.horizontalCenter: startbutton.horizontalCenter
-
-    Image {
-
-        id : left
-        width: 90
-        height: 90
-        source: "assets/left.png"
-
-    }
-    Image {
-        id : right
-        width: 90
-        height: 90
-
-        source: "assets/right.png"
-
-    }
-
-
-
-}
     Image {
         id : imagwaterdrop
         width: 70
