@@ -5,7 +5,6 @@ Item {
     id : game
     visible: false
     property int counter:0
-    property int vie:0
     property int flag:0
 
     function test ()
@@ -75,11 +74,8 @@ Item {
                 anim2.restart();
             }
         }
-        if ((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
-        {
-            vie+=1;
-        }
-        if(vie==3)
+
+        if((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
         {
             start.state = "visible"
             animbad.stop()
@@ -99,11 +95,8 @@ Item {
             counter = counter + 1;
             anim2.restart();
         }
-        if ((imagwaterdropp2.y>(imgwater.y+20)) && counter>0 && imagwaterdropp2.state===visible)
-        {
-            vie+=1;
-        }
-        if(vie==3)
+
+        if((imagwaterdropp2.y>(imgwater.y+20)) && counter>0 && imagwaterdropp2.state=="visibile")
         {
             start.state = "visible"
             animbad.stop()
