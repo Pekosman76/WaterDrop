@@ -5,7 +5,7 @@ Item {
     id : game
     visible: false
     property int counter:0
-    property int move:40
+    property int vie:0
     property int flag:0
 
     function test ()
@@ -17,32 +17,49 @@ Item {
             counter = counter + 1;
             anim.restart();
 
-            if (counter>1 && counter<10)
+            if (counter==1)
             {
-
-                anim.duration = 8000
+                anim.duration = 5000
             }
-            if (counter>10 && counter<15)
+            if (counter==3)
             {
+                anim.duration = 3000
+            }
 
+            if (counter==10)
+            {
                 anim.duration = 2000
             }
-
-            if (counter>15 && counter<20)
+            if (counter==15)
             {
-
+                anim.duration = 1950
+            }
+            if (counter==20)
+            {
                 anim.duration = 1900
             }
-            if (counter ==2)
+            if (counter==25)
+            {
+                anim.duration = 1800
+            }
+            if (counter==30)
+            {
+                anim.duration = 1700
+            }
+            if (counter==35)
+            {
+                anim.duration = 1600
+            }
+
+            if (counter ==5 ||counter == 20)
             {
                 imagebad.y=-200;
                 imagebad.x = game.getNumber();
                 imagebad.visible =true
                 animbad.restart();
-
             }
 
-            if (counter ==3)
+            if (counter ==8 || counter == 25)
             {
                 imageboost.y=-200;
                 imageboost.x = game.getNumber();
@@ -50,8 +67,19 @@ Item {
                 animboost.restart();
             }
 
+            if (counter == 22)
+            {
+                imagwaterdropp2.y=-200;
+                imagwaterdropp2.x = game.getNumber();
+                imagwaterdropp2.visible =true
+                anim2.restart();
+            }
         }
         if ((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
+        {
+            vie+=1;
+        }
+        if(vie==3)
         {
             start.state = "visible"
             animbad.stop()
@@ -60,6 +88,32 @@ Item {
             imagebad.y=-200
             imageboost.x=-500
             imageboost.y=-200
+        }
+    }
+    function test2 ()
+    {
+        if (imgwater.y<imagwaterdropp2.y+50 && imgwater.y>imagwaterdropp2.y-50  && imgwater.x<imagwaterdropp2.x+50 &&imgwater.x>imagwaterdropp2.x-50 )
+        {
+            imagwaterdropp2.x = game.getNumber();
+            imagwaterdropp2.y=-200;
+            counter = counter + 1;
+            anim2.restart();
+        }
+        if ((imagwaterdropp2.y>(imgwater.y+20)) && counter>0 && imagwaterdropp2.state===visible)
+        {
+            vie+=1;
+        }
+        if(vie==3)
+        {
+            start.state = "visible"
+            animbad.stop()
+            animboost.stop()
+            imagebad.x=-500
+            imagebad.y=-200
+            imageboost.x=-500
+            imageboost.y=-200
+            imagwaterdropp2.x=-500
+            imagwaterdropp2.y=-200
         }
     }
 
@@ -74,13 +128,10 @@ Item {
             animbad.restart();
         }
 
-
         if (imgwater.y<imagebad.y+50 && imgwater.y>imagebad.y-50  && imgwater.x<imagebad.x+50 &&imgwater.x>imagebad.x-50 )
         {
-
             animbad.stop()
-            //console.log("win")
-            speed.duration +=20
+            anim.duration = 5000
             imagebad.x=-500
             imagebad.y=-200
         }
@@ -91,7 +142,6 @@ Item {
 
         if ((imageboost.y>(imgwater.y+20)))
         {
-
             imageboost.y=-200;
             imageboost.x = game.getNumber();
             animboost.restart();
@@ -102,9 +152,7 @@ Item {
         {
 
             animboost.stop()
-            console.log("win")
-            move+=20
-            speed.duration -= 20
+            anim.duration = 1900
             imageboost.x=-500
             imageboost.y=-200
         }
@@ -117,8 +165,6 @@ Item {
     function getNumber() {
         return game.randomNumber();
     }
-
-
 
     Rectangle{
 
@@ -142,15 +188,15 @@ Item {
 
             z :2
             id : imgwater
+
             Behavior on x { NumberAnimation { id:speed ;duration: 50 } }
 
             MouseArea {
+                focus: true
                 id: liverbirdMouseArea
                 anchors.fill: parent
 
-                property variant iconObj
                 property int startX
-                property int startY
 
                 onPressed: {
                     startX = mouseX
@@ -162,9 +208,7 @@ Item {
                     startX = mouseX
 
                 }
-
             }
-
         }
         Text{
 
@@ -176,7 +220,6 @@ Item {
             color : "#5A8AD1"
             font.bold: true
             text: "Score : "+ game.counter
-
         }
 
         Image {
@@ -190,13 +233,30 @@ Item {
             source: "assets/drop.png"
             fillMode: Image.Stretch
 
-            PropertyAnimation on y { id :anim; from: imagwaterdropp.y;to: ground.y; duration: 3000; loops: Animation.Infinite }
+            PropertyAnimation on y { id :anim; from: imagwaterdropp.y;to: ground.y; duration: 5000; loops: Animation.Infinite }
             onYChanged: {
 
                 test();
+            }
+        }
+        Image {
+
+            id : imagwaterdropp2
+            width: 95
+            height: 95
+            x : -500
+            y : -200
+            visible : false
+
+            source: "assets/drop.png"
+            fillMode: Image.Stretch
+
+            PropertyAnimation on y { id :anim2; from: imagwaterdropp2.y;to: ground.y; duration: 3000; loops: Animation.Infinite }
+            onYChanged: {
+
+                test2();
 
             }
-
         }
         Image {
 
