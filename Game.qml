@@ -53,7 +53,7 @@ Item {
                 anim.duration = 1600
             }
 
-            if (counter ==5 ||counter == 20)
+            if (counter ==5 ||counter == 20 ||counter == 30)
             {
                 imagebad.y=-200;
                 imagebad.x = game.getNumber();
@@ -61,7 +61,7 @@ Item {
                 animbad.restart();
             }
 
-            if (counter ==8 || counter == 25)
+            if (counter ==8 || counter == 25 ||counter == 35)
             {
                 imageboost.y=-200;
                 imageboost.x = game.getNumber();
@@ -87,6 +87,8 @@ Item {
             imagebad.y=-200
             imageboost.x=-500
             imageboost.y=-200
+            imagwaterdropp2.x=-500
+            imagwaterdropp2.y=-200
         }
     }
     function test2 ()
@@ -110,6 +112,7 @@ Item {
             imageboost.y=-200
             imagwaterdropp2.x=-500
             imagwaterdropp2.y=-200
+
         }
     }
 
@@ -252,7 +255,7 @@ Item {
             source: "assets/drop.png"
             fillMode: Image.Stretch
 
-            PropertyAnimation on y { id :anim2; from: imagwaterdropp2.y;to: ground.y; duration: 3000; loops: Animation.Infinite }
+            PropertyAnimation on y { id :anim2; from: imagwaterdropp2.y;to: ground.y; duration: 2200; loops: Animation.Infinite }
             onYChanged: {
 
                 test2();
