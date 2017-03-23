@@ -5,6 +5,7 @@ Item {
     id : game
     visible: false
     property int counter:0
+    property int counter2:0
     property int flag:0
     width: root.width
     height: root.height
@@ -80,6 +81,7 @@ Item {
 
         if((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
         {
+            counter2 = counter
             start.state = "visible"
             animbad.stop()
             animboost.stop()
@@ -89,6 +91,7 @@ Item {
             imageboost.y=-200
             imagwaterdropp2.x=-500
             imagwaterdropp2.y=-200
+            anim.duration = 5000
         }
     }
     function test2 ()
@@ -103,6 +106,8 @@ Item {
 
         if((imagwaterdropp2.y>(imgwater.y+20)) && counter>0 && imagwaterdropp2.state=="visibile")
         {
+            counter2 = counter
+            anim.duration = 5000
             start.state = "visible"
             animbad.stop()
             animboost.stop()
@@ -221,7 +226,7 @@ Item {
             anchors.top: parent.top
             anchors.left : parent.left
 
-            font.pointSize: 15
+            font.pointSize: 30
             color : "#5A8AD1"
             font.bold: true
             text: "Score : "+ game.counter
@@ -239,7 +244,7 @@ Item {
             fillMode: Image.Stretch
 
             PropertyAnimation on y { id :anim; from: imagwaterdropp.y;to: ground.y; duration: 5000; loops: Animation.Infinite }
-            onYChanged: {           
+            onYChanged: {
                 test();
             }
         }

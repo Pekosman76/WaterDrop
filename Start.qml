@@ -1,10 +1,8 @@
 import QtQuick 2.0
 
 Item {
-
-
-    width: parent.width/3
-    height: 60
+width: root.width
+height: root.height
 
 
     states: [
@@ -43,7 +41,7 @@ Item {
         anchors.bottom : startbutton.top
         anchors.bottomMargin: 200
 
-        font.pointSize: 30
+        font.pointSize: 20
         color : "#5A8AD1"
         font.bold: true
         text: qsTr("WELCOME SMALL DROP")
@@ -55,7 +53,7 @@ Item {
         anchors.bottom : startbutton.top
         anchors.bottomMargin: 100
 
-        font.pointSize: 30
+        font.pointSize: 20
         color : "#5A8AD1"
         font.bold: true
         text: qsTr("ARE YOU READY ?")
@@ -64,8 +62,9 @@ Item {
     Rectangle{
 
         id: startbutton
-        width: parent.width
-        height: parent.height
+        anchors.centerIn: parent
+        width: parent.width/4
+        height: parent.height/9
         color : "#5A8AD1"
         border.color: "white"
         border.width: 5
@@ -105,7 +104,7 @@ Item {
         id : imagwaterdrop2
         width: 95
         height: 95
-        x : starttext.x+525
+        anchors.left: parent.left
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
@@ -116,11 +115,23 @@ Item {
         id : imagwaterdrop3
         width: 95
         height: 95
-        x : starttext.x-100
+        anchors.right: parent.right
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
         PropertyAnimation on y { from: imagwaterdrop3.y;to: imagwaterdrop.y; duration: 2500; loops: Animation.Infinite }
+    }
+
+    Text{
+
+        id: score
+        anchors.top: imagwaterdrop.bottom
+        anchors.horizontalCenter : parent.horizontalCenter
+
+        font.pointSize: 30
+        color : "#5A8AD1"
+        font.bold: true
+        text: "Score : "+ game1.counter2
     }
 
 
