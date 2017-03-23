@@ -5,9 +5,9 @@ Image {
     width: 70
     height: 95
 
+    x : root.width/2
+    anchors.bottom: ground.top
 
-    x : (parent.width / 2 - width / 2)
-    y: (parent.width/2+width*2 )
     source: "assets/images.png"
     fillMode: Image.Stretch
 }

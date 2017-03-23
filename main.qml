@@ -3,15 +3,11 @@ import QtQuick.Window 2.2
 
 Window {
 
+    id: root
     visible: true
     width: 1200
-    height: 900
+    height: 720
     color: "white"
-
-    Component.onCompleted: {
-        setX(Screen.width / 2 - width / 2);
-        setY(Screen.height / 2 - height / 2);
-    }
 
 
     Start{
@@ -24,7 +20,7 @@ Window {
 
         id : game1
         visible : false
-    }
 
+    }
 
 }

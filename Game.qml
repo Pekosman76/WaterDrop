@@ -6,6 +6,9 @@ Item {
     visible: false
     property int counter:0
     property int flag:0
+    width: root.width
+    height: root.height
+
 
     function test ()
     {
@@ -152,20 +155,24 @@ Item {
 
     }
     function randomNumber() {
-        return Math.random()*950;
+        return Math.random()*(root.width/1.25);
     }
 
     function getNumber() {
         return game.randomNumber();
     }
 
+
     Rectangle{
 
         id: background
 
-        width: 1200
-        height: 900
+        width: root.width
+        height:root.height
+        anchors.bottom: parent.bottom
         color: "white"
+
+
         Rectangle{
             id : ground
             z : 2
@@ -173,15 +180,17 @@ Item {
             width: parent.width
             height: 60
             color : "#5A8AD1"
-            anchors.bottom: parent.bottom
+            anchors.bottom: background.bottom
+
 
         }
+
+
 
         Water {
 
             z :2
             id : imgwater
-
             Behavior on x { NumberAnimation { id:speed ;duration: 50 } }
 
             MouseArea {
@@ -227,8 +236,7 @@ Item {
             fillMode: Image.Stretch
 
             PropertyAnimation on y { id :anim; from: imagwaterdropp.y;to: ground.y; duration: 5000; loops: Animation.Infinite }
-            onYChanged: {
-
+            onYChanged: {           
                 test();
             }
         }

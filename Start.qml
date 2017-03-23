@@ -109,7 +109,7 @@ Item {
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
-        PropertyAnimation on y { from: imagwaterdrop2.y;to: rowimg.y; duration: 2500; loops: Animation.Infinite }
+        PropertyAnimation on y { from: imagwaterdrop2.y;to: imagwaterdrop.y; duration: 2500; loops: Animation.Infinite }
     }
 
     Image {
@@ -120,7 +120,7 @@ Item {
         y: starttext.y
         source: "assets/drop.png"
         fillMode: Image.Stretch
-        PropertyAnimation on y { from: imagwaterdrop3.y;to: rowimg.y; duration: 2500; loops: Animation.Infinite }
+        PropertyAnimation on y { from: imagwaterdrop3.y;to: imagwaterdrop.y; duration: 2500; loops: Animation.Infinite }
     }
 
 
