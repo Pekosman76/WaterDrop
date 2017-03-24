@@ -23,7 +23,10 @@ height: root.height
                 target: game1; visible:false }
             PropertyChanges {
                 target: game1; counter:0 }
+            PropertyChanges {
+                target: score; text: "BestScore :"+ ttscore.readfile() }
         }
+
     ]
     transitions:
         Transition {
@@ -127,12 +130,15 @@ height: root.height
         id: score
         anchors.top: imagwaterdrop.bottom
         anchors.horizontalCenter : parent.horizontalCenter
+        anchors.topMargin: 20
 
         font.pointSize: 30
         color : "#5A8AD1"
         font.bold: true
-        text: "Score : "+ game1.counter2
+        text: "Best Score :"+ttscore.readfile()
+
     }
+
 
 
 }

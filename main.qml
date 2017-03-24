@@ -1,6 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
-import "assets"
+
 
 
 Window {
@@ -9,7 +9,7 @@ Window {
     visible: true
     width: 1200
     height: 720
-    color: "white"
+    color: "#CEE3F6"
      visibility: version === "mobile" ? "FullScreen" : "Windowed"
 
 
@@ -17,6 +17,7 @@ Window {
         id: start
         visible: true
         anchors.centerIn: parent
+
     }
 
     Game{

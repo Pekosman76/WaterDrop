@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.cpp</file>
+        <file>Start.qml</file>
+        <file>Water.qml</file>
+        <file>main.qml</file>
+        <file>Game.qml</file>
+        <file>assets/score.txt</file>
+        <file>assets/images.png</file>
+        <file>assets/drop.png</file>
+        <file>assets/boost.png</file>
+        <file>assets/boost-ConvertImage.png</file>
+        <file>assets/bad.png</file>
+        <file>score.cpp</file>
+        <file>score.h</file>
+    </qresource>
+</RCC>
