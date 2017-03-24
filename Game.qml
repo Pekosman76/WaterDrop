@@ -28,7 +28,7 @@ Item {
                 anim.duration = 3000
                 counter3=counter;
             }
-            if (counter-counter3==9)
+            if (counter-counter3==8)
             {
 
                 if (anim.duration<=1200)
@@ -54,12 +54,12 @@ Item {
                     imageboost.x = game.getNumber();
                     imageboost.visible =true
                     animboost.restart();
-                    flag=2;
+                    flag2=1;
                 }
             }
 
 
-            if (counter == 22)
+            if (counter == 25)
             {
                 imagwaterdropp2.y=-200;
                 imagwaterdropp2.x = game.getNumber();
@@ -90,7 +90,7 @@ Item {
     }
     function test2 ()
     {
-        if (imgwater.y<imagwaterdropp2.y+50 && imgwater.x<imagwaterdropp2.x+40 &&imgwater.x>imagwaterdropp2.x-40 )
+        if (imgwater.y<imagwaterdropp2.y+40 && imgwater.x<imagwaterdropp2.x+40 &&imgwater.x>imagwaterdropp2.x-40 )
         {
             imagwaterdropp2.x = game.getNumber();
             imagwaterdropp2.y=-200;
@@ -101,6 +101,11 @@ Item {
         if((imagwaterdropp2.y>(imgwater.y+20)) && counter>0 && imagwaterdropp2.state=="visibile")
         {
             counter2 = counter
+            plus = ttscore.readfile()
+            if (counter>plus)
+            {
+            ttscore.writefile(counter)
+            }
             anim.duration = 5000
             start.state = "visible"
             animbad.stop()
@@ -256,7 +261,7 @@ Item {
             source: "assets/drop.png"
             fillMode: Image.Stretch
 
-            PropertyAnimation on y { id :anim2; from: imagwaterdropp2.y;to: ground.y; duration: 2500; loops: Animation.Infinite }
+            PropertyAnimation on y { id :anim2; from: imagwaterdropp2.y;to: ground.y; duration: 2700; loops: Animation.Infinite }
             onYChanged: {
 
                 test2();
