@@ -7,6 +7,7 @@ Item {
     property int counter:0
     property int counter2:0
     property int counter3:0
+    property int plus:0
     property int flag:0
     property int flag2:0
     width: root.width
@@ -70,7 +71,11 @@ Item {
         if((imagwaterdropp.y>(imgwater.y+20)) && counter>0)
         {
             counter2 = counter
+            plus = ttscore.readfile()
+            if (counter>plus)
+            {
             ttscore.writefile(counter)
+            }
             animbad.stop()
             animboost.stop()
             imagebad.x=-500
