@@ -31,9 +31,9 @@ Item {
             if (counter-counter3==8)
             {
 
-                if (anim.duration<=1200)
+                if (anim.duration<=1100)
                 {
-                    anim.duration=1200;
+                    anim.duration=1100;
                 }
                 else{
 
