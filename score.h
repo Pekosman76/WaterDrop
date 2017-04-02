@@ -5,13 +5,14 @@
 #include <QFile>
 #include <QString>
 #include <QStringList>
+#include <QSettings>
 
 class score : public QObject
 {
     Q_OBJECT
 public:
     explicit score(QObject *parent = 0);
-
+     QString myfilename;
 
 signals:
 

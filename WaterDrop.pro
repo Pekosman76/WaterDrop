@@ -6,7 +6,9 @@ QT += qml quick widgets
 SOURCES += main.cpp \
     score.cpp
 
-
+android {
+    DEFINES += MOBILE
+}
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
@@ -16,9 +18,9 @@ include(deployment.pri)
 
 DISTFILES +=
 
-HEADERS += \
-    score.h
-
 RESOURCES += \
     src.qrc
+
+HEADERS += \
+    score.h
 

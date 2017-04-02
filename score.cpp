@@ -1,15 +1,18 @@
 #include "score.h"
 #include "QDebug"
+#include <QDir>
+
 
 
 score::score(QObject *parent) : QObject(parent)
 {
 
+   myfilename = QDir::currentPath()+"/score.txt";
 }
 
 QString score::readfile()
 {
-    QFile file("assets/score.txt");
+    QFile file(myfilename);
     if(!file.open(QIODevice::ReadOnly)) {
 
     }
@@ -29,16 +32,11 @@ QString score::readfile()
 
 void score::writefile(int score)
 {
-
-    QFile file("assets/score.txt");
+  QFile file(myfilename);
     if(!file.open(QIODevice::WriteOnly)) {
 
     }
     QTextStream in(&file);
-
-
         in << QString::number(score);
-
-
 }
 

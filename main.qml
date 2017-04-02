@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
+import "assets"
 
 
 
@@ -10,7 +11,7 @@ Window {
     width: 1200
     height: 720
     color: "#CEE3F6"
-     visibility: version === "mobile" ? "FullScreen" : "Windowed"
+    visibility: version === "mobile" ? "FullScreen" : "Windowed"
 
 
     Start{
